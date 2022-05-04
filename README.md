@@ -1,0 +1,2 @@
+# Lexical_and_Syntactic_Analyzer
+大三下编译原理课设大作业，包括使用DFA实现的词法分析器和LR(1)语法分析器
