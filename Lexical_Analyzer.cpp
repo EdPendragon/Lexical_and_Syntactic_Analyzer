@@ -107,11 +107,13 @@ void showNFA(){
   cout<<endl;
   cout<<"生成的NFA如下："<<endl;
   cout<<"起点        终结符        终点"<<endl; //表格的形式展示结点之间关系
+  int nnfa=0;
   for(int i=0;i<nfa.nf;i++){
     cout<<nfa.f[i].zuo<<"             "<<nfa.f[i].zho<<"             "<<nfa.f[i].you;
     if(i!=(nfa.nf-1)) cout<<endl;
+    nnfa++;
   }
-  cout<<endl<<"其中S为开始结点,Z为结束结点";
+  cout<<endl<<"其中S为开始结点,Z为结束结点"<<",NFA共"<<nnfa<<"条边";
   cout<<endl;
 }
 void load_Grammar(){  //读取文法文件，并启动create_NFA函数，随后展示
@@ -281,7 +283,9 @@ void create_DFA(){  //根据已生成的NFA生成DFA，使用子集法
 void showDFA(){ //展示生成的DFA
   cout<<endl<<"生成的DFA如下："<<endl;
   cout<<"起点"<<"        "<<"终结符"<<"        "<<"终点"<<endl;
+  int ndfa=0;
   for(int i=0;i<dfa.nf;i++){  //遍历每一条边
+    ndfa++;
     for(int j=0;j<dfa.nk;j++){
       if(equalS(dfa.Kk[j].K,dfa.f[i].zu)) cout<<j; //用数字来代表数组，用数组在K的次序代表序号
       else continue;
@@ -302,7 +306,7 @@ void showDFA(){ //展示生成的DFA
       }
     }
   }
-  cout<<"为结束结点";
+  cout<<"为结束结点"<<"，DFA共有"<<ndfa<<"条边";
 }
 bool is_EndNode(char *A){ //判断一子集是否是结束结点，不解释，工具函数
   for(int i=0;A[i];i++){
