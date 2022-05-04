@@ -1,0 +1,15 @@
+int main(){
+  int a=1;
+  float b=14.51;
+  double c=b;
+  double dd=4.1e9;
+  double  _e1=19+9i;
+  if(a==0){
+    a=1;
+  }
+  while(a>0){
+    a=114;
+    break;
+  }
+  return 0;
+}
